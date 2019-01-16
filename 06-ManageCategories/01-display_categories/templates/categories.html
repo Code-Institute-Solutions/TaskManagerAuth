@@ -1,0 +1,22 @@
+{% extends 'base.html'%} {% block content %}
+
+<div class="row">
+
+    <h3>Categories</h3>
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for category in categories %}
+        <li>
+            <div class="collapsible-header">
+                <a href="" class="waves-effect waves-light btn btn_small">Del</a>
+                <a href="" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                    
+                <div class="task_header">
+                    <strong>{{category.category_name}}</strong>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+</div>
+{% endblock %}
