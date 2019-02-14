@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'task_manager'
-app.config["MONGO_URI"] = 'mongodb://admin:admin@ds123926.mlab.com:23926/task_manager'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
@@ -14,15 +14,15 @@ mongo = PyMongo(app)
 @app.route('/get_tasks')
 def get_tasks():
     return render_template("tasks.html", 
-        tasks=mongo.db.tasks.find())
-    
-    
+                           tasks=mongo.db.tasks.find())
+
+
 @app.route('/add_task')
 def add_task():
     return render_template('addtask.html',
-        categories=mongo.db.categories.find())
-    
-    
+                           categories=mongo.db.categories.find())
+
+
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
     tasks =  mongo.db.tasks
@@ -34,8 +34,10 @@ def insert_task():
 def edit_task(task_id):
     the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
     all_categories =  mongo.db.categories.find()
-    return render_template('edittask.html', task=the_task, categories=all_categories)
-    
+    return render_template('edittask.html', task=the_task,
+                           categories=all_categories)
+
+
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):
     tasks = mongo.db.tasks
@@ -48,9 +50,9 @@ def update_task(task_id):
         'is_urgent':request.form.get['is_urgent']
     })
     return redirect(url_for('get_tasks'))
-    
-    
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-        port=int(os.environ.get('PORT')),
-        debug=True)
+            port=int(os.environ.get('PORT')),
+            debug=True)
