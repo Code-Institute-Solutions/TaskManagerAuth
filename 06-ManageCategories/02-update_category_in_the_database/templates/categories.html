@@ -7,11 +7,9 @@
         {% for category in categories %}
         <li>
             <div class="collapsible-header">
-                <form action="{{url_for('delete_category', category_id=category._id)}}" method="POST">
-                    <button type="submit" class="waves-effect waves-light btn btn_small">Del</button>
-                </form>
-                <a href="" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                    
+                <a href="" class="waves-effect waves-light btn btn_small">Del</a>
+                <a href="{{url_for('edit_category', category_id=category._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+
                 <div class="task_header">
                     <strong>{{category.category_name}}</strong>
                 </div>
