@@ -1,10 +1,14 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
+
+    <h2>I'm extending the base template!</h2>
+
     {% for task in tasks %}
-        {{task.task_name}}
-        {{task.category_name}}
-        {{task.task_description}}
-        {{task.is_urgent}}
-        {{task.due_date}}
+        {{ task.task_name }}<br>
+        {{ task.category_name }}<br>
+        {{ task.task_description }}<br>
+        {{ task.is_urgent }}<br>
+        {{ task.due_date }}<br>
     {% endfor %}
+
 {% endblock %}
