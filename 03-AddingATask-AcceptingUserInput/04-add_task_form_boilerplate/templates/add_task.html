@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">Add Task</h3>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-phone prefix light-blue-text text-darken-4"></i>
+                    <input id="icon_telephone" type="tel" class="validate">
+                    <label for="icon_telephone">Telephone</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

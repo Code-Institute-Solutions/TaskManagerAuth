@@ -1,14 +1,17 @@
-<html>
-    <head>
-
-    </head>
-    <body>
-        {% for task in tasks %}
-            {{task.task_name}}
-            {{task.category_name}}
-            {{task.task_description}}
-            {{task.is_urgent}}
-            {{task.due_date}}
-        {% endfor %}
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body>
+    {% for task in tasks %}
+        {{ task.task_name }}<br>
+        {{ task.category_name }}<br>
+        {{ task.task_description }}<br>
+        {{ task.is_urgent }}<br>
+        {{ task.due_date }}<br>
+    {% endfor %}
+</body>
 </html>

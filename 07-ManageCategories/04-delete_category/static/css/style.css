@@ -1,0 +1,16 @@
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.flashes h4 {
+    line-height: 2;
+}
+
+.btn-small {
+    margin: 5px;
+}
+
+.collapsible-header .col strong {
+    margin: 5px;
+    line-height: 42px;
+}
